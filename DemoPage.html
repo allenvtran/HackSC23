@@ -10,6 +10,9 @@
             padding: 0.5rem 2rem;
         }
     </style>
+    <script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-database.js"></script>
+    <script src="FirebaseConfig.js"></script>
 </head>
 <body>
     <form>
@@ -52,10 +55,10 @@
             <label for="interests">Interests:</label>
             <select id="interests">
                 <option value="">Select Interest</option>
-                <option value="basketball">Basketball</option>
-                <option value="football">Football</option>
-                <option value="running">Running</option>
-                <option value="weightLifting">Weight Lifting</option>
+                <option value="hobby">Just as a Hobby</option>
+                <option value="playinband">Play in a Band</option>
+                <option value="writingmusic">Writing Music</option>
+                <option value="Impressinggirls">Impress a girl</option>
             </select>
         </div>
         <div class="formBox">
@@ -91,5 +94,11 @@
         document.getElementById('btn').addEventListener('click', addProfile);
     });
 </script>
+
+
+
+<div id="firebaseData"></div>
+
+
 </body>
 </html>

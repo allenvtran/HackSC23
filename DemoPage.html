@@ -69,31 +69,35 @@
         </div>
     </form>
     <script>
-        let profiles = [];
+  let profiles = [];
 
-        const addProfile = (ev) => {
-            ev.preventDefault();
+const addProfile = (ev) => {
+    ev.preventDefault();
 
-            let profile = {
-                id: Date.now(),
-                gender: document.getElementById('gender').value,
-                age: document.querySelector('input[name="age"]:checked').value,
-                interest: document.getElementById('interests').value
-            }
-            profiles.push(profile);
-            document.forms[0].reset();
-
-            console.warn('added', { profiles });
-            let pre = document.querySelector('#msg pre');
-            pre.textContent = '\n' + JSON.stringify(profiles, '\t', 2);
-
-            //saving to localStorage
-        localStorage.setItem('MyProfileList', JSON.stringify(profiles) );
+    let profile = {
+        id: Date.now(),
+        gender: document.getElementById('gender').value,
+        age: document.querySelector('input[name="age"]:checked').value,
+        interest: document.getElementById('interests').value
     }
-    document.addEventListener('DOMContentLoaded', ()=>{
-        document.getElementById('btn').addEventListener('click', addProfile);
-    });
+    profiles.push(profile);
+    document.forms[0].reset();
+
+    //Create the text to display the profile information
+    let text = "Your Gender is " + profile.gender + " Your age range is " + profile.age + " Your interest is " + profile.interest;
+    document.getElementById("profileDisplay").innerHTML = text;
+
+    //saving to localStorage
+localStorage.setItem('MyProfileList', JSON.stringify(profiles) );
+}
+document.addEventListener('DOMContentLoaded', ()=>{
+document.getElementById('btn').addEventListener('click', addProfile);
+});
+
 </script>
+<div id="profileDisplay"></div>
+
+
 
 
 

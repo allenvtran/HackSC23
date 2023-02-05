@@ -39,3 +39,5 @@ function getText(text, params) {
     });
 }
 export { getText };
+
+//to use, put import {getText} from "chatGPTapi.js"; then make call to function getText(text, params)

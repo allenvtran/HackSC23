@@ -1,5 +1,6 @@
 const request = require("request");
 
+//WARNING: cannot put api key in code, have to add it as environment var?
 function getText(text, params) {
     //params = a list of string
     var promptText = "To target" + params[1] + " " + params[0];

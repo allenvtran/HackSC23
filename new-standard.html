@@ -20,6 +20,7 @@
     <script src="formModalTrigger.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma-rtl.min.css">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
     
 
@@ -3841,16 +3842,112 @@ for (var attr in meta) {
 </script>
 
 </div>
-<div id="s-b73cfbfe-1af0-40b7-bd4c-4f776c69799b"  class="shg-c  ">
-  <div
-  class="shg-rich-text shg-theme-text-content"><p><span style="font-size: 20px;"><strong><em><span style="font-family: sailec-medium;">REBUILT FOR MORE RALLIES</span></em></strong></span></p></div>
-
-</div>
-<div id="s-fa662f31-d74c-41e5-810d-627c50a99809"  class="shg-c  ">
-  <div
-  class="shg-rich-text shg-theme-text-content"><p><span style="font-size: 14px;"><strong><em><span style="font-family: sailec-medium;">REBUILT FOR MORE RALLIES</span></em></strong></span></p></div>
-
-</div>
+    <script>
+          //My web apps Firebase configuration
+          var FirebaseConfig = {
+              apiKey: "AIzaSyCxEIjvw5uLhyIoABsOMm93fTVK4Twkac0",
+              authDomain: "webliftai.firebaseapp.com",
+              databaseURL: "https://webliftai-default-rtdb.firebaseio.com/",
+              projectId: "webliftai",
+              storageBucket: "webliftai.appspot.com",
+              messagingSenderId: "314977331271",
+              appId: "1:314977331271:web:5ae18c92e9a832b1f36962",
+              measurementId: "G-6SYN7C0XK5"
+          };
+   
+  //to use, put import {getText} from "chatGPTapi.js"; then make call to function getText(text, params)
+  
+  //Retrieve text data from Firebase Realtime database
+  firebase.initializeApp(FirebaseConfig);
+  database = firebase.database();
+  var ref = database.ref('clients/client1/module1/Text1');
+  ref.on('value', gotData, errData);
+  
+  
+  
+  // function gotData(data) {
+  //     var module1 = data.val();
+  //     var keys = Object.keys(module1);
+  //     document.getElementById("result-container") = module1[keys[0]];
+  
+  //     // var resultContainer = document.getElementById("result-container");
+  //     // resultContainer.innerHTML = ""; // Clear previous content
+  //     // keys.forEach(function(key) {
+  //     //     var newElement = document.createElement("p");
+  //     //     newElement.innerHTML = key + ": " + module1[key];
+  //     //     resultContainer.appendChild(newElement);
+  //     // });
+  // }
+  
+  function gotData(data) {
+      var module1 = data.val();
+      var keys = Object.keys(module1);
+      document.getElementById("result-container").innerText = module1[keys[0]];
+      getNewText();
+      //console.log(module1[keys[0]]);
+      // resultContainer.innerText = ""; // Clear previous content
+      // keys.forEach(function(key) {
+      //     resultContainer.innerText += key + ": " + module1[key] + "\n";
+      // });
+  }
+  
+  
+  function errData(err) {
+      console.log('Error!');
+      console.log(err);
+  }
+  
+  function getText(text, params) {
+      var text = text;
+      var params = params;
+      var text = text[params];
+      console.log(text);
+      return text;
+  }
+  function getNewText(){
+      params=["young", "men"];
+      var promptText = "Completely rewrite this text to increase conversions in every single way targeting " + params[0] + " " + params[1];
+      if (params.length > 2) {
+          promptText += " who are interested in ";
+      }
+      for (var i = 2; i < params.length; ++i) {
+          promptText += i + ", ";
+      }
+      promptText += " the text is here: " + document.getElementById("result-container").innerHTML.trim();
+      console.log(promptText);
+      var OPENAI_API_KEY = "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";
+      const body = JSON.stringify({
+          prompt: promptText,
+          model: "text-davinci-003",
+          max_tokens: 200,
+      });
+      axios
+          .post(
+              "https://api.openai.com/v1/completions",
+              body,
+              {
+                  headers: {
+                      "content-type": "application/json",
+                      Authorization: "Bearer " + OPENAI_API_KEY,
+                  },
+              }
+          )
+          .then(function (response) {
+              console.log(response.data);
+              document.getElementById("result-container").innerHTML = response.data.choices[0].text;
+          });
+  
+  
+  
+  }
+  
+  
+  
+  //Call the getText function, and feet the Text1 data to it for the first variable
+  
+  
+  
+  </script>
 <div id="s-f0f2a50c-21c1-4499-bb54-5fe2187de933"  class="shg-c  shg-align-left">
   <span class="stamped-product-reviews-badge stamped-main-badge" data-id="7130660176069" style="display: inline-block;"></span>
 
@@ -3996,35 +4093,120 @@ for (var attr in meta) {
   <hr/>
 
 </div>
-<div id="s-fbca3261-399a-4548-bd44-2aa65ce785e4"  class="shg-c  ">
-  <div
-  class="shg-rich-text shg-theme-text-content"><p style="line-height: 14px;"><strong><span style="font-family: Poppins; font-size: 22px;">About this kit </span></strong></p>
-<p style="line-height: 14px;">&nbsp;</p>
-<p style="line-height: 14px;">&nbsp;</p>
-<p style="line-height: 20px;"><span style="font-family: Poppins; font-size: 16px;"><strong>Rebuilt for more rallies! </strong></span></p>
-<p style="line-height: 20px;"><span style="font-family: Poppins; font-size: 16px;">Beefier frame, Grippier balls, more intuitive installation</span></p>
-<p style="line-height: 20px;">&nbsp;</p>
-<p style="line-height: 20px;"><span style="font-family: Poppins; font-size: 16px;"><strong>Easy to learn</strong></span></p>
-<p style="line-height: 20px;"><span style="font-family: Poppins; font-size: 16px;"><span style="color: #212b36;">After 10 minutes you&rsquo;ll have some amazing rallies and MONSTER spikes</span></span></p>
-<p style="line-height: 20px;">&nbsp;</p>
-<p style="line-height: 20px;"><span style="font-family: Poppins; font-size: 16px;"><strong>Play anywhere</strong></span></p>
-<p style="line-height: 20px;"><span style="font-family: Poppins; font-size: 16px;"><span style="color: #212b36;">All you need is 4 people and some open space. Play on grass, sand, in the basement, you name it.</span></span></p>
-<p style="line-height: 20px;">&nbsp;</p>
-<p style="line-height: 20px;"><span style="font-family: Poppins; font-size: 16px;"><strong>Easy to transport</strong></span></p>
-<p style="line-height: 20px;"><span style="font-family: Poppins; font-size: 16px;"><span style="color: #212b36;">When disassembled the entire game fits into a lightweight carrying bag. Easy to take to the beach, campground, friend's house, any place good for playing.</span></span></p>
-<p style="line-height: 20px;">&nbsp;</p>
-<p style="line-height: 20px;"><span style="font-family: Poppins; font-size: 16px;"><strong>Technically, yes, it is exercise. </strong></span></p>
-<p style="line-height: 20px;"><span style="font-family: Poppins; font-size: 16px;"><span style="color: #212b36;">Your significant other/mom/life coach can breathe a sigh of relief. Roundnet is a great form of exercise and is used by many athletes for cross-training.</span></span></p>
-<p style="line-height: 20px;">&nbsp;</p>
-<p style="line-height: 20px;">&nbsp;</p>
-<p style="line-height: 20px;"><span style="font-family: Poppins;"><strong><span style="font-size: 16px;">What's in the box?</span></strong></span></p>
-<p style="line-height: 20px;"><span style="font-size: 16px; font-family: Poppins;">All you need to play is included:</span></p>
-<p style="line-height: 20px;"><span style="font-size: 16px; font-family: Poppins;">- New &amp; Improved Standard Spikeball set (incl. net)</span></p>
-<p style="line-height: 20px;"><span style="font-size: 16px; font-family: Poppins;">- 2 balls</span></p>
-<p style="line-height: 20px;"><span style="font-size: 16px; font-family: Poppins;">- Rule book</span></p>
-<p style="line-height: 20px;"><span style="font-size: 16px; font-family: Poppins;">- Carrying bag for easy transport</span></p></div>
 
-</div>
+<div id="result-container"></div>
+
+
+    <script>
+          //My web apps Firebase configuration
+          var FirebaseConfig = {
+              apiKey: "AIzaSyCxEIjvw5uLhyIoABsOMm93fTVK4Twkac0",
+              authDomain: "webliftai.firebaseapp.com",
+              databaseURL: "https://webliftai-default-rtdb.firebaseio.com/",
+              projectId: "webliftai",
+              storageBucket: "webliftai.appspot.com",
+              messagingSenderId: "314977331271",
+              appId: "1:314977331271:web:5ae18c92e9a832b1f36962",
+              measurementId: "G-6SYN7C0XK5"
+          };
+   
+  //to use, put import {getText} from "chatGPTapi.js"; then make call to function getText(text, params)
+  
+  //Retrieve text data from Firebase Realtime database
+  firebase.initializeApp(FirebaseConfig);
+  database = firebase.database();
+  var ref = database.ref('clients/client1/module1/Text1');
+  ref.on('value', gotData, errData);
+  
+  
+  
+  // function gotData(data) {
+  //     var module1 = data.val();
+  //     var keys = Object.keys(module1);
+  //     document.getElementById("result-container") = module1[keys[0]];
+  
+  //     // var resultContainer = document.getElementById("result-container");
+  //     // resultContainer.innerHTML = ""; // Clear previous content
+  //     // keys.forEach(function(key) {
+  //     //     var newElement = document.createElement("p");
+  //     //     newElement.innerHTML = key + ": " + module1[key];
+  //     //     resultContainer.appendChild(newElement);
+  //     // });
+  // }
+  
+  function gotData(data) {
+      var module1 = data.val();
+      var keys = Object.keys(module1);
+      document.getElementById("result-container").innerText = module1[keys[0]];
+      getNewText();
+      //console.log(module1[keys[0]]);
+      // resultContainer.innerText = ""; // Clear previous content
+      // keys.forEach(function(key) {
+      //     resultContainer.innerText += key + ": " + module1[key] + "\n";
+      // });
+  }
+  
+  
+  function errData(err) {
+      console.log('Error!');
+      console.log(err);
+  }
+  
+  function getText(text, params) {
+      var text = text;
+      var params = params;
+      var text = text[params];
+      console.log(text);
+      return text;
+  }
+  function getNewText(){
+      params=["young", "men"];
+      var promptText = "Completely rewrite this text to increase conversions in every single way targeting " + params[0] + " " + params[1];
+      if (params.length > 2) {
+          promptText += " who are interested in ";
+      }
+      for (var i = 2; i < params.length; ++i) {
+          promptText += i + ", ";
+      }
+      promptText += " the text is here: " + document.getElementById("result-container").innerHTML.trim();
+      console.log(promptText);
+      var OPENAI_API_KEY = "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";
+      const body = JSON.stringify({
+          prompt: promptText,
+          model: "text-davinci-003",
+          max_tokens: 200,
+      });
+      axios
+          .post(
+              "https://api.openai.com/v1/completions",
+              body,
+              {
+                  headers: {
+                      "content-type": "application/json",
+                      Authorization: "Bearer " + OPENAI_API_KEY,
+                  },
+              }
+          )
+          .then(function (response) {
+              console.log(response.data);
+              document.getElementById("result-container").innerHTML = response.data.choices[0].text;
+          });
+  
+  
+  
+  }
+  
+  
+  
+  //Call the getText function, and feet the Text1 data to it for the first variable
+  
+  
+  
+  </script>
+
+
+
+
 <div
     class="shg-box-vertical-align-wrapper">
     <div

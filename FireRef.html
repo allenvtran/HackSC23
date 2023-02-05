@@ -7,12 +7,16 @@
     <title>Testing</title>
     <script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-database.js"></script>
-    <script src="chatGPTapi.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
 
 </head>
 <body>
 
  <ol id="TextDisplay"></ol>
+
+ <div id="result-container"></div>
+
 
     <script>
         //My web apps Firebase configuration
@@ -29,27 +33,94 @@
  
 //to use, put import {getText} from "chatGPTapi.js"; then make call to function getText(text, params)
 
-
 //Retrieve text data from Firebase Realtime database
 firebase.initializeApp(FirebaseConfig);
 database = firebase.database();
 var ref = database.ref('clients/client1/module1/Text1');
-ref.on('value',gotData, errData);
+ref.on('value', gotData, errData);
+
+
+
+// function gotData(data) {
+//     var module1 = data.val();
+//     var keys = Object.keys(module1);
+//     document.getElementById("result-container") = module1[keys[0]];
+
+//     // var resultContainer = document.getElementById("result-container");
+//     // resultContainer.innerHTML = ""; // Clear previous content
+//     // keys.forEach(function(key) {
+//     //     var newElement = document.createElement("p");
+//     //     newElement.innerHTML = key + ": " + module1[key];
+//     //     resultContainer.appendChild(newElement);
+//     // });
+// }
 
 function gotData(data) {
-    console.log(data.val());
     var module1 = data.val();
     var keys = Object.keys(module1);
-    //call get text function after retrieving data
-    //getText(module1, keys); // added by us
-    console.log(keys);
-
+    document.getElementById("result-container").innerText = module1[keys[0]];
+    getNewText();
+    //console.log(module1[keys[0]]);
+    // resultContainer.innerText = ""; // Clear previous content
+    // keys.forEach(function(key) {
+    //     resultContainer.innerText += key + ": " + module1[key] + "\n";
+    // });
 }
+
 
 function errData(err) {
     console.log('Error!');
     console.log(err);
 }
+
+function getText(text, params) {
+    var text = text;
+    var params = params;
+    var text = text[params];
+    console.log(text);
+    return text;
+}
+function getNewText(){
+    params=["young", "men"];
+    var promptText = "Completely rewrite this text to increase conversions in every single way targeting " + params[0] + " " + params[1];
+    if (params.length > 2) {
+        promptText += " who are interested in ";
+    }
+    for (var i = 2; i < params.length; ++i) {
+        promptText += i + ", ";
+    }
+    promptText += " the text is here: " + document.getElementById("result-container").innerHTML.trim();
+    console.log(promptText);
+    var OPENAI_API_KEY = "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";
+    const body = JSON.stringify({
+        prompt: promptText,
+        model: "text-davinci-003",
+        max_tokens: 200,
+    });
+    axios
+        .post(
+            "https://api.openai.com/v1/completions",
+            body,
+            {
+                headers: {
+                    "content-type": "application/json",
+                    Authorization: "Bearer " + OPENAI_API_KEY,
+                },
+            }
+        )
+        .then(function (response) {
+            console.log(response.data);
+            document.getElementById("result-container").innerHTML = response.data.choices[0].text;
+        });
+
+
+
+}
+
+
+
+//Call the getText function, and feet the Text1 data to it for the first variable
+
 
 
 </script>

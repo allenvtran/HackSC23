@@ -1,30 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Testing</title>
-    <script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-database.js"></script>
-    </head>
-    <body>
-        <script>
-            //My web apps Firebase configuration
-            var FirebaseConfig = {
-                apiKey: "AIzaSyCxEIjvw5uLhyIoABsOMm93fTVK4Twkac0",
-                authDomain: "webliftai.firebaseapp.com",
-                projectId: "webliftai",
-                storageBucket: "webliftai.appspot.com",
-                messagingSenderId: "314977331271",
-                appId: "1:314977331271:web:5ae18c92e9a832b1f36962",
-                measurementId: "G-6SYN7C0XK5"
- };
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Testing</title>
+    <script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-database.js"></script>
+</head>
+<body>
 
- // Initialize Firebase
-    firebase.initializeApp(firebaseConfig);
-    var firebaseRef = firebase.database().ref("emails")
-    firebaeRef.once("")
+ <ol id="TextDisplay"></ol>
 
-            
-        </script>
+    <script>
+        //My web apps Firebase configuration
+        var FirebaseConfig = {
+            apiKey: "AIzaSyCxEIjvw5uLhyIoABsOMm93fTVK4Twkac0",
+            authDomain: "webliftai.firebaseapp.com",
+            databaseURL: "https://webliftai-default-rtdb.firebaseio.com/",
+            projectId: "webliftai",
+            storageBucket: "webliftai.appspot.com",
+            messagingSenderId: "314977331271",
+            appId: "1:314977331271:web:5ae18c92e9a832b1f36962",
+            measurementId: "G-6SYN7C0XK5"
+        };
+
+
+//Retrieve text data from Firebase Realtime database
+firebase.initializeApp(FirebaseConfig);
+database = firebase.database();
+var ref = database.ref('clients/client1/module1/Text1');
+ref.on('value',gotData, errData);
+
+function gotData(data) {
+    console.log(data.val());
+    var module1 = data.val();
+    var keys = Object.keys(module1);
+    console.log(keys);
+
+}
+
+function errData(err) {
+    console.log('Error!');
+    console.log(err);
+}
+
+
+</script>
+</body>
+</html>

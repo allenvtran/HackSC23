@@ -7,10 +7,11 @@
 
     </header> 
     <!--navigation bar-->
-    <nav class="navbar" role="navigation" aria-label="main navigation">
+    <nav class="navbar" role="navigation" aria-label="main navigation" style= "background-color: black" style = "height: 100px">
+        
         <div class="navbar-brand">
           <a class="navbar-item" href="https://bulma.io">
-            <img src="photos/Weblift.png" width="112" height="28">
+            <img src="photos/Weblift.png" width="90px" height="100px">
           </a>
       
           <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
@@ -23,40 +24,19 @@
         <div id="navbarBasicExample" class="navbar-menu">
           <div class="navbar-start">
             <a class="navbar-item">
-              Home
+              Profile
             </a>
       
             <a class="navbar-item">
-              Documentation
+              About
             </a>
-      
-            <div class="navbar-item has-dropdown is-hoverable">
-              <a class="navbar-link">
-                More
-              </a>
-      
-              <div class="navbar-dropdown">
-                <a class="navbar-item">
-                  About
-                </a>
-                <a class="navbar-item">
-                  Jobs
-                </a>
-                <a class="navbar-item">
-                  Contact
-                </a>
-                <hr class="navbar-divider">
-                <a class="navbar-item">
-                  Report an issue
-                </a>
-              </div>
             </div>
-          </div>
+            
       
           <div class="navbar-end">
             <div class="navbar-item">
               <div class="buttons">
-                <a class="button is-primary">
+                <a class="button is-primary" href="DemoPage.html">
                   <strong>Log Out</strong>
                 </a>
                 
@@ -82,7 +62,7 @@
     <label>
         
         <span style="color: white">Label: </span>
-        <select style="width: 100px; height: 150px;">
+        <select>
             <option>Male.jpg</option>
             <option>Female.jpg</option>
         
@@ -92,7 +72,7 @@
     <br>
     <!--this is at the bottom-->
     <form>
-        <input type="button" value="Upload" onclick="previewFile()" style="height: 10px; width:100px;">
+        <input type="button" value="Upload" onclick="previewFile()" style="height: 50px; width:100px;">
     </form> 
     <img id="preview">
     <style>
@@ -101,6 +81,13 @@
           height: 25%;
         }
       </style>
+   <!--<div class="container">
+    <div class="notification is-primary" style="width: 100%">
+      <p class="title is-4 has-text-white">Your Script Tag is: <span id="idOutput">[&lt;<script src="webliftai.xyz/8gdf8739s98gds/displayscript.js"></script>&gt;]</span></p>
+    </div>
+  </div>
+-->
+      
       
 
     <script src = "clientside.js"></script>

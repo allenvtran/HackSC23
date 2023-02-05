@@ -20,5 +20,11 @@
     width: 200px; /* adjust as needed */
     object-fit: contain; /* scale the image to fit inside the container */
 }
+.navbar {
+    background-color: black;
+}
+.navbar a, .navbar a strong {
+    color: white;
+}
 
 

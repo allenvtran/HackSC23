@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html style="background-color: black;">
+    <header>
+    <link rel="stylesheet" type="text/css" href="clientside.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+
+
+    </header> 
+    <!--navigation bar-->
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+          <a class="navbar-item" href="https://bulma.io">
+            <img src="photos/Weblift.png" width="112" height="28">
+          </a>
+      
+          <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+          </a>
+        </div>
+      
+        <div id="navbarBasicExample" class="navbar-menu">
+          <div class="navbar-start">
+            <a class="navbar-item">
+              Home
+            </a>
+      
+            <a class="navbar-item">
+              Documentation
+            </a>
+      
+            <div class="navbar-item has-dropdown is-hoverable">
+              <a class="navbar-link">
+                More
+              </a>
+      
+              <div class="navbar-dropdown">
+                <a class="navbar-item">
+                  About
+                </a>
+                <a class="navbar-item">
+                  Jobs
+                </a>
+                <a class="navbar-item">
+                  Contact
+                </a>
+                <hr class="navbar-divider">
+                <a class="navbar-item">
+                  Report an issue
+                </a>
+              </div>
+            </div>
+          </div>
+      
+          <div class="navbar-end">
+            <div class="navbar-item">
+              <div class="buttons">
+                <a class="button is-primary">
+                  <strong>Log Out</strong>
+                </a>
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+    <!--upload images-->
+    <div class="logo-container">
+        <img src="photos/Weblift.png" alt="Your Logo">
+    </div>
+    <br>  
+    <form>
+        <input type="file" id="file-input" style = "color: white">
+        
+    </form>
+      
+    
+      
+    <br>
+
+    <label>
+        
+        <span style="color: white">Label: </span>
+        <select style="width: 100px; height: 150px;">
+            <option>Male.jpg</option>
+            <option>Female.jpg</option>
+        
+        </select>
+    </label>
+    <br>
+    <br>
+    <!--this is at the bottom-->
+    <form>
+        <input type="button" value="Upload" onclick="previewFile()" style="height: 10px; width:100px;">
+    </form> 
+    <img id="preview">
+    <style>
+        #preview {
+          width: 25%;
+          height: 25%;
+        }
+      </style>
+      
+
+    <script src = "clientside.js"></script>
+
+</html>

@@ -1,0 +1,24 @@
+.label select {
+    height: 100px;
+  }
+
+
+.logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px; /* adjust as needed */
+    width: 100%;
+    background-color: #000;
+    
+}
+
+.logo-container img {
+    
+    border-radius: 10px; /* make the image rounded */
+    height: 200px; /* adjust as needed */
+    width: 200px; /* adjust as needed */
+    object-fit: contain; /* scale the image to fit inside the container */
+}
+
+

@@ -17,11 +17,12 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma-rtl.min.css">
 
     <script src="FirebaseConfig.js"></script>
+
 </head>
 <body>
 <!-- The button to open the modal -->
 <button class="js-modal-trigger" data-target="formModal">Survey</button>
-<button class="social-signin google" id='login'>Log in with Google+</button>
+<button class="social-signin google" id='login'>Log in with Google</button>
 
   
 <!-- The modal component -->
@@ -182,10 +183,10 @@ document.getElementById('btn').addEventListener('click', addProfile);
     const token = credential.accessToken;
     // The signed-in user info.
     const user = result.user;
-
+    window.location.href = "https://www.youtube.com";  //
 
     alert(user.displayName);
-    // ...
+
     }).catch((error) => {
     // Handle Errors here.
     const errorCode = error.code;
@@ -194,7 +195,6 @@ document.getElementById('btn').addEventListener('click', addProfile);
     const email = error.email;
     // The AuthCredential type that was used.
     const credential = GoogleAuthProvider.credentialFromError(error);
-    // ...
 
     alert(errorMessage);
     });
@@ -209,7 +209,6 @@ document.getElementById('btn').addEventListener('click', addProfile);
 
   });
   //    signInWithRedirect(auth, provider);
-
 
   //    //redirect the result
   //    getRedirectResult(auth)

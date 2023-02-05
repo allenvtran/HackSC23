@@ -1,239 +1,233 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Putting User Input into JS Objects</title>
-    <style>
-        .formBox{
-            padding: 0.5rem 2rem;
-        }
-    </style>
-    <script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-database.js"></script>
-    <script src="formModalTrigger.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma-rtl.min.css">
 
-    <script src="FirebaseConfig.js"></script>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Putting User Input into JS Objects</title>
+  <style>
+      .formBox{
+          padding: 0.5rem 2rem;
+      }
+  </style>
+  <script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-database.js"></script>
+  <script src="formModalTrigger.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma-rtl.min.css">
+
+  <script src="FirebaseConfig.js"></script>
 
 </head>
+
 <body>
 <!-- The button to open the modal -->
 <button class="js-modal-trigger" data-target="formModal">Survey</button>
 <button class="social-signin google" id='login'>Log in with Google</button>
 
-  
 <!-- The modal component -->
 <div class="modal" id="formModal">
-  <div class="modal-background"></div>
-  <div class="modal-card">
-    <!-- The modal header -->
-    <header class="modal-card-head">
-      <p class="modal-card-title">Form</p>
-      <button class="delete" id="closeModalButton"></button>
-    </header>
+<div class="modal-background"></div>
+<div class="modal-card">
+  <!-- The modal header -->
+  <header class="modal-card-head">
+    <p class="modal-card-title">Form</p>
+    <button class="delete" id="closeModalButton"></button>
+  </header>
 
-    <!-- The modal body -->
-    <section class="modal-card-body">
-      <!-- Your form goes here -->
-      <form>
-        <div class="formBox">
-          <label for="gender">Gender:</label>
-          <select id="gender">
-            <option value="">Select Gender</option>
-            <option value="male">Male</option>
-            <option value="female">Female</option>
-          </select>
+  <!-- The modal body -->
+  <section class="modal-card-body">
+    <!-- Your form goes here -->
+    <form>
+      <div class="formBox">
+        <label for="gender">Gender:</label>
+        <select id="gender">
+          <option value="">Select Gender</option>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+        </select>
+      </div>
+      <div class="formBox">
+        <label for="ageGroup">Age Group:</label>
+        <div>
+          <input type="radio" id="age1" name="age" value=">18" />
+          <label for="age1">&gt;18</label>
         </div>
-        <div class="formBox">
-          <label for="ageGroup">Age Group:</label>
-          <div>
-            <input type="radio" id="age1" name="age" value=">18" />
-            <label for="age1">&gt;18</label>
-          </div>
-          <div>
-            <input type="radio" id="age2" name="age" value="18-24" />
-            <label for="age2">18-24</label>
-          </div>
-          <div>
-            <input type="radio" id="age3" name="age" value="25-34" />
-            <label for="age3">25-34</label>
-          </div>
-          <div>
-            <input type="radio" id="age4" name="age" value="34-45" />
-            <label for="age4">34-45</label>
-          </div>
-          <div>
-            <input type="radio" id="age5" name="age" value="46-55" />
-            <label for="age5">46-55</label>
-          </div>
-          <div>
-            <input type="radio" id="age6" name="age" value="55+" />
-            <label for="age6">55+</label>
-          </div>
+        <div>
+          <input type="radio" id="age2" name="age" value="18-24" />
+          <label for="age2">18-24</label>
         </div>
-        <div class="formBox">
-          <label for="interests">Interests:</label>
-          <select id="interests">
-            <option value="">Select Interest</option>
-            <option value="hobby">Just as a Hobby</option>
-            <option value="playinband">Play in a Band</option>
-            <option value="writingmusic">Writing Music</option>
-            <option value="Impressinggirls">Impress a girl</option>
-          </select>
+        <div>
+          <input type="radio" id="age3" name="age" value="25-34" />
+          <label for="age3">25-34</label>
         </div>
-        <div class="formBox">
-          <button id="btn">Click to Add</button>
+        <div>
+          <input type="radio" id="age4" name="age" value="34-45" />
+          <label for="age4">34-45</label>
         </div>
-        <div id="msg">
+        <div>
+          <input type="radio" id="age5" name="age" value="46-55" />
+          <label for="age5">46-55</label>
+        </div>
+        <div>
+          <input type="radio" id="age6" name="age" value="55+" />
+          <label for="age6">55+</label>
+        </div>
+      </div>
+      <div class="formBox">
+        <label for="interests">Interests:</label>
+        <select id="interests">
+          <option value="">Select Interest</option>
+          <option value="hobby">Just as a Hobby</option>
+          <option value="playinband">Play in a Band</option>
+          <option value="writingmusic">Writing Music</option>
+          <option value="Impressinggirls">Impress a girl</option>
+        </select>
+      </div>
+      <div class="formBox">
+        <button id="btn">Click to Add</button>
+      </div>
+      <div id="msg">
 
 
 
-    <script>
+  <script>
 
 const modal = document.querySelector('#formModal');
 const modalTriggerButtons = document.querySelectorAll('.js-modal-trigger');
 const closeModalButton = document.querySelector('#closeModalButton');
 
 modalTriggerButtons.forEach(button => {
-  button.addEventListener('click', function() {
-    const targetModalId = this.getAttribute('data-target');
-    const targetModal = document.querySelector(`#${targetModalId}`);
-    targetModal.classList.add('is-active');
-  });
+button.addEventListener('click', function() {
+  const targetModalId = this.getAttribute('data-target');
+  const targetModal = document.querySelector(`#${targetModalId}`);
+  targetModal.classList.add('is-active');
+});
 });
 
 closeModalButton.addEventListener('click', function() {
-  modal.classList.remove('is-active');
+modal.classList.remove('is-active');
 });
 
-  let profiles = [];
+let profiles = [];
 
 const addProfile = (ev) => {
-    ev.preventDefault();
+  ev.preventDefault();
 
-    let profile = {
-        id: Date.now(),
-        gender: document.getElementById('gender').value,
-        age: document.querySelector('input[name="age"]:checked').value,
-        interest: document.getElementById('interests').value
-    }
-    profiles.push(profile);
-    document.forms[0].reset();
+  let profile = {
+      id: Date.now(),
+      gender: document.getElementById('gender').value,
+      age: document.querySelector('input[name="age"]:checked').value,
+      interest: document.getElementById('interests').value
+  }
+  profiles.push(profile);
+  document.forms[0].reset();
 
-    //Create the text to display the profile information
-    let text = "Your Gender is " + profile.gender + " Your age range is " + profile.age + " Your interest is " + profile.interest;
-    document.getElementById("profileDisplay").innerHTML = text;
+  //Create the text to display the profile information
+  let text = "Your Gender is " + profile.gender + " Your age range is " + profile.age + " Your interest is " + profile.interest;
+  document.getElementById("profileDisplay").innerHTML = text;
 
-    //saving to localStorage
+  //saving to localStorage
 localStorage.setItem('MyProfileList', JSON.stringify(profiles) );
 }
 document.addEventListener('DOMContentLoaded', ()=>{
 document.getElementById('btn').addEventListener('click', addProfile);
 });
-
 </script>
+
 <div id="profileDisplay"></div>
-
-
-
-
-
 <div id="firebaseData"></div>
-
-
 </body>
 
 
 <script type="module">
-  // Import the functions you need from the SDKs you need
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js";
-  import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-analytics.js";
-  import { getAuth, GoogleAuthProvider, signInWithRedirect, getRedirectResult, signInWithPopup, signOut } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-auth.js";
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js";
+import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-analytics.js";
+import { getAuth, GoogleAuthProvider, signInWithRedirect, getRedirectResult, signInWithPopup, signOut } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-auth.js";
 
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
 
-  // Your web app's Firebase configuration
-  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-  const firebaseConfig = {
-    apiKey: "AIzaSyCxEIjvw5uLhyIoABsOMm93fTVK4Twkac0",
-    authDomain: "webliftai.firebaseapp.com",
-    databaseURL: "https://webliftai-default-rtdb.firebaseio.com",
-    projectId: "webliftai",
-    storageBucket: "webliftai.appspot.com",
-    messagingSenderId: "314977331271",
-    appId: "1:314977331271:web:5ae18c92e9a832b1f36962",
-    measurementId: "G-6SYN7C0XK5"
-  };
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyCxEIjvw5uLhyIoABsOMm93fTVK4Twkac0",
+  authDomain: "webliftai.firebaseapp.com",
+  databaseURL: "https://webliftai-default-rtdb.firebaseio.com",
+  projectId: "webliftai",
+  storageBucket: "webliftai.appspot.com",
+  messagingSenderId: "314977331271",
+  appId: "1:314977331271:web:5ae18c92e9a832b1f36962",
+  measurementId: "G-6SYN7C0XK5"
+};
 
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-  const auth = getAuth(app);
-  const analytics = getAnalytics(app);
-  const provider = new GoogleAuthProvider(app);
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const analytics = getAnalytics(app);
+const provider = new GoogleAuthProvider(app);
 
-  login.addEventListener('click',(e) => {
-    // sign in with popup tab
-    signInWithPopup(auth, provider).then((result) => {
-    // This gives you a Google Access Token. You can use it to access the Google API.
-    const credential = GoogleAuthProvider.credentialFromResult(result);
-    const token = credential.accessToken;
-    // The signed-in user info.
-    const user = result.user;
+login.addEventListener('click',(e) => {
+  // sign in with popup tab
+  signInWithPopup(auth, provider).then((result) => {
+  // This gives you a Google Access Token. You can use it to access the Google API.
+  const credential = GoogleAuthProvider.credentialFromResult(result);
+  const token = credential.accessToken;
+  // The signed-in user info.
+  const user = result.user;
 
-    // redirect user after authentication
-    window.location.href = "INSERT LINK";  //
+  // redirect user after authentication
+  window.location.href = "INSERT LINK";  //
 
-    alert(user.displayName);
+  alert(user.displayName);
 
-    }).catch((error) => {
-    // Handle Errors here.
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    // The email of the user's account used.
-    const email = error.email;
-    // The AuthCredential type that was used.
-    const credential = GoogleAuthProvider.credentialFromError(error);
+  }).catch((error) => {
+  // Handle Errors here.
+  const errorCode = error.code;
+  const errorMessage = error.message;
+  // The email of the user's account used.
+  const email = error.email;
+  // The AuthCredential type that was used.
+  const credential = GoogleAuthProvider.credentialFromError(error);
 
-    alert(errorMessage);
-    });
+  alert(errorMessage);
+  });
+});
+
+signOut.addEventListener('click',(e) => {
+  signOut(auth).then(() => {
+  // Sign-out successful.
+  }).catch((error) => {
+  // An error happened.
   });
 
-  signOut.addEventListener('click',(e) => {
-    signOut(auth).then(() => {
-    // Sign-out successful.
-    }).catch((error) => {
-    // An error happened.
-    });
+});
+//    signInWithRedirect(auth, provider);
 
-  });
-  //    signInWithRedirect(auth, provider);
+//    //redirect the result
+//    getRedirectResult(auth)
+//      .then((result) => {
+//        // This gives you a Google Access Token. You can use it to access Google APIs.
+//        const credential = GoogleAuthProvider.credentialFromResult(result);
+//        const token = credential.accessToken;
 
-  //    //redirect the result
-  //    getRedirectResult(auth)
-  //      .then((result) => {
-  //        // This gives you a Google Access Token. You can use it to access Google APIs.
-  //        const credential = GoogleAuthProvider.credentialFromResult(result);
-  //        const token = credential.accessToken;
+//        // The signed-in user info.
+//        const user = result.user;
 
-  //        // The signed-in user info.
-  //        const user = result.user;
-
-  //      }).catch((error) => {
-  //        // Handle Errors here.
-  //        const errorCode = error.code;
-  //        const errorMessage = error.message;
-  //        // The email of the user's account used.
-  //        const email = error.email;
-  //        // The AuthCredential type that was used.
-  //        const credential = GoogleAuthProvider.credentialFromError(error);
-  //        // ...
-        
-  //   });
-  // });
+//      }).catch((error) => {
+//        // Handle Errors here.
+//        const errorCode = error.code;
+//        const errorMessage = error.message;
+//        // The email of the user's account used.
+//        const email = error.email;
+//        // The AuthCredential type that was used.
+//        const credential = GoogleAuthProvider.credentialFromError(error);
+//        // ...
+      
+//   });
+// });
 </script>
 
 </html>

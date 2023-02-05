@@ -7,6 +7,8 @@
     <title>Testing</title>
     <script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-database.js"></script>
+    <script src="chatGPTapi.js"></script>
+
 </head>
 <body>
 
@@ -24,6 +26,8 @@
             appId: "1:314977331271:web:5ae18c92e9a832b1f36962",
             measurementId: "G-6SYN7C0XK5"
         };
+ 
+//to use, put import {getText} from "chatGPTapi.js"; then make call to function getText(text, params)
 
 
 //Retrieve text data from Firebase Realtime database
@@ -36,6 +40,8 @@ function gotData(data) {
     console.log(data.val());
     var module1 = data.val();
     var keys = Object.keys(module1);
+    //call get text function after retrieving data
+    //getText(module1, keys); // added by us
     console.log(keys);
 
 }
